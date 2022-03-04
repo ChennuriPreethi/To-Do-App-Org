@@ -1,0 +1,43 @@
+*{
+    font-size: 20px;
+}
+.addTask-box {
+    padding:50px;
+    margin-top:10%;
+}
+.addTask-box h1 {
+    font-size:30px;
+    color: orangered;
+    font-weight: bold;
+    margin-bottom: 20px
+}
+table{
+    margin-top:15%;
+    border: 2px solid black;
+}
+
+table thead{
+    /* font-size:30px; */
+    color: orangered;
+    font-weight: bold;
+}
+
+table tbody{
+    font-size: 20px;
+}
+.task-buttons {
+    transition: opacity 0.2s, transform 0.2s;
+    opacity: 100%;
+    transform: scale(0.85);
+}
+
+.completed{
+    text-decoration: line-through;
+    
+}
+
+@media only screen and (max-width:990px) {
+    .task-buttons{
+        display: flex;
+    }
+}

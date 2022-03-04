@@ -1,0 +1,63 @@
+<section class="Singup-wrap mtb-40">
+    <div class="container-fluid">
+      <div class="row" >
+        <div class="col-md-5 todo-img">
+            <img src="../../../assets/Images/checklist1.gif" style="float: right;margin-top: 15%;" class="rounded-circle img-fluid" alt="" />
+        </div>
+        
+          <div class="col-md-7">
+              <div class="login-box">
+                <h1>User Registration</h1>
+                <div *ngIf="status=='success'; else errorStatus">
+                <div class="alert alert-success" *ngIf="datasaved">
+                   {{message}}
+                </div>
+              </div>
+                <ng-template #errorStatus="">
+                  <div class="alert alert-danger" *ngIf="datasaved">
+                      {{message}}
+                   </div>
+              </ng-template>
+
+                  <form (ngSubmit)="onSubmit()" [formGroup]="regForm">
+                    <div class="row mt-4">
+                      <div class="form-group form-row">
+                          <label class="col-md-3">Name <span class="required" style="color:red">*</span></label>
+                          <div class="col-md-9">
+                            <input type="text" formControlName="name" class="form-control" placeholder="Name" required="">
+                            <span *ngIf="!regForm.get('name').valid && regForm.get('name').touched" style="color:red">Please Enter Valid Name...!!!</span>
+                          </div>
+                      </div>
+                    </div>
+                      <div class="row mt-4">
+                      <div class="form-group form-row">
+                          <label class="col-md-3">Email ID <span class="required" style="color:red">*</span></label>
+                          <div class="col-md-9">
+                            <input type="text" formControlName="email" class="form-control" placeholder="Email Id" required="">
+                            <span *ngIf="!regForm.get('email').valid && regForm.get('email').touched " style="color:red">Please Enter Valid Email...!!!</span>
+                          </div>
+                      </div>
+                    </div>
+                      <div class="row mt-4">
+                      <div class="form-group form-row">
+                          <label class="col-md-3">Password <span class="required" style="color:red">*</span></label>
+                          <div class="col-md-9">
+                            <input type="password" formControlName="password" class="form-control" placeholder="Password" required="">
+                            <span *ngIf="!regForm.get('password').valid && regForm.get('password').touched" style="color:red">Please Enter Valid Password...!!!</span>
+                          </div>
+                      </div>
+                    </div>
+                      <div class="row mt-4">
+                        <div class="form-group">
+                          <button type="submit" [disabled]="!regForm.valid" class="btn btn-success">Register</button>&nbsp;
+                          Already have an account? <a type="submit" routerLink="/login" >Sign in</a>
+                        
+                        </div>
+                      </div>
+                  </form>
+              </div>         
+          </div>
+        
+       </div>
+    </div>
+  </section>

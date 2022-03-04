@@ -1,0 +1,28 @@
+*{
+    background-color: white;
+    margin-top: 4%;
+}
+
+.title {
+    margin-top: -15%;
+    padding: 10%;
+}
+
+.title h2 {
+    color: darkgreen;
+    font-size: 50px;
+    font-family: 'Lobster', cursive;
+    margin-top: 40%;
+    text-align: justify;
+}
+   
+
+.title-img {
+    text-align: center;
+}
+
+.title-img img {
+    width: 100%;
+    margin-top: 20%;
+}
+

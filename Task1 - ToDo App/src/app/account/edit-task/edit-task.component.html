@@ -1,0 +1,49 @@
+<section class="Singup-wrap mtb-40">
+    <div class="container" >
+      <div class="row" >
+        <div class="col-md-6 todo-img">
+            <img src="../../../assets/Images/todo1.gif" style="float: right;margin-top: 15%;" class="rounded-circle img-fluid" alt="" />
+            </div>
+        <div class="col-md-6 todoform" >
+            <div class="addTask-box">
+                <h1>Edit Task</h1>
+                <div *ngIf="status=='success'; else errorStatus">
+                <div class="alert alert-success" *ngIf="datasaved">
+                   {{message}}
+                </div>
+              </div>
+                <ng-template #errorStatus="">
+                  <div class="alert alert-danger" *ngIf="datasaved">
+                      {{message}}
+                   </div>
+              </ng-template>
+            <form [formGroup]="ToDoEditForm" (ngSubmit)="updateTask()">
+                <div class="row mt-4">
+                  <div class="form-group">
+                      <label class="col-md-3">Task</label>
+                      <div class="col-md-9">
+                        <input type="text" formControlName="task" class="form-control" placeholder="Task">
+                        </div>
+                  </div>
+                </div>
+                  <div class="row mt-4">
+                  <div class="form-group">
+                      <label class="col-md-3">Description</label>
+                      <div class="col-md-9">
+                        <input type="text" formControlName="description" class="form-control" placeholder="Description">
+                      </div>
+                  </div>
+                </div>                  
+                  <div class="row mt-4">
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-success">Update</button>
+                      <button class="btn btn-secondary" [routerLink]="['/users',selectedlistId,'new-task']">Cancel</button>
+                    </div>
+                  </div>
+              </form>
+        </div>
+</div>
+
+</div>
+</div>
+</section>
