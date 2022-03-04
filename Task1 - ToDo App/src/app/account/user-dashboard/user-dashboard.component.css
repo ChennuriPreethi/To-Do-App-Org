@@ -1,0 +1,14 @@
+table thead{
+    color: orangered;
+    font-weight: bold;
+}
+
+table{
+    /* margin-top:15%; */
+    border: 2px solid black;
+}
+
+
+table tbody{
+    font-size: 20px;
+}

@@ -1,0 +1,101 @@
+<section class="Singup-wrap mtb-40">
+    <div class="container" >
+      <div class="row" >
+        <div class="col-md-6 todoform" >
+            <div class="addTask-box">
+                <h1>Add Task</h1>
+                <div *ngIf="status=='success'; else errorStatus">
+                <div class="alert alert-success" *ngIf="datasaved">
+                   {{message}}
+                </div>
+              </div>
+                <ng-template #errorStatus="">
+                  <div class="alert alert-danger" *ngIf="datasaved">
+                      {{message}}
+                   </div>
+              </ng-template>
+            <form (ngSubmit)="onSubmit()" [formGroup]="ToDoForm">
+                <div class="row mt-4">
+                  <div class="form-group form-row">
+                      <label class="col-md-3">Task <span class="required" style="color:red">*</span></label>
+                      <div class="col-md-9">
+                        <input type="text" formControlName="task" class="form-control" placeholder="Task" required="">
+                        <span *ngIf="!ToDoForm.get('task').valid && ToDoForm.get('task').touched" style="color:red">Please enter task !!!</span>
+                      </div>
+                  </div>
+                </div>
+                  <div class="row mt-4">
+                  <div class="form-group form-row">
+                      <label class="col-md-3">Description <span class="required" style="color:red">*</span></label>
+                      <div class="col-md-9">
+                        <input type="text" formControlName="description" class="form-control" placeholder="Description" required="">
+                        <span *ngIf="!ToDoForm.get('description').valid && ToDoForm.get('description').touched " style="color:red">Please enter description !!!</span>
+                      </div>
+                  </div>
+                </div>                  
+                  <div class="row mt-4">
+                    <div class="form-group">
+                      <button type="submit" [disabled]="!ToDoForm.valid"  class="btn btn-success">Add Task</button>
+                      <button class="btn btn-secondary" routerLink="/users">Cancel</button>
+                    </div>
+                  </div>
+              </form>
+        </div>
+
+        </div> 
+        <div class="col-md-6">
+          <!-- <img src="../../../assets/Images/todo1.gif" style="float: right;margin-top: 15%;" class="rounded-circle img-fluid" alt="" /> -->
+          <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        <h2>TASK</h2>
+                    </th>
+                    <th>
+                        <h2>DESCRIPTION</h2>
+                    </th>
+                    <th>
+        
+                    </th>
+                </tr>
+            </thead>
+               
+                <tbody>
+                <tr *ngFor="let t of tasks;">
+                    <td>
+                        {{t.task}}
+                    </td>
+                    <td>
+                        {{t.description}}
+    
+                    </td>
+                    <td>
+                      <div class="task-buttons">
+                        <button class="button btn btn-secondary" [routerLink]="['/users',selectedlistId,'editTasks',t._id]">
+                          
+                          <div class="icon">
+                            <i class="fas fa-edit"></i>
+                          </div>
+                        </button>
+            
+                        <button class="button btn btn-danger" (click)="delTask(t._id)" style="margin-left: 10px;">
+                          <div class="icon">
+                            <i class="fas fa-trash-alt"></i>
+                          </div>
+                        </button>
+            
+                      </div>
+                        <!-- <button routerLink="/users/{{listId}}/tasks/{{t._id}}" type="submit" >
+                          <i class="fas fa-edit"></i>
+                        </button>&nbsp;
+                        <a routerLink="/users/{{listId}}/tasks/{{t._id}}" type="submit" (click)="delTask(t._UserID,t._id)" >
+                          <i class="fas fa-trash-alt"></i>
+                        </a> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div> 
+    </div>
+</div> 
+</section>

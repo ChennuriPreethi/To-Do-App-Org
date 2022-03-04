@@ -1,0 +1,32 @@
+h1 {
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+}
+.bg-blue {
+    /* background-color: #d0df9e; */
+    background-color: orangered;
+}
+
+.navbar-brand img { 
+    height:50px; 
+}
+.navbar-dark .navbar-nav .nav-link {
+    color:black;
+    font-size: 20px;
+}
+.navbar-dark .navbar-nav .active .nav-link {
+    color:white
+    
+}
+
+.nright{
+    flex: 1;
+    text-align: right;
+    margin:0 75%;
+}
+
+.nright li{
+    display: inline-block;
+    list-style: none;
+    
+}

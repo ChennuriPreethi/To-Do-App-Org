@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead>
+                    
+                        <th>
+                            <h2>TASK</h2>
+                        </th>
+                        <th>
+                            <h2>DESCRIPTION</h2>
+                        </th>
+                        <th>
+            
+                        </th>
+                    
+                </thead>
+                    <tbody >
+                        
+                    <tr *ngFor="let t of tasks;">
+                        <td>
+                            {{t.task}}
+                        </td>
+                        <td>
+                            {{t.description}}
+        
+                        </td>
+                        <!-- <td>
+                            {{t.completed}}
+                        </td> -->
+                        <td>
+                            <button type="submit" class="btn btn-success" (click)="onDoneClick(t)" >DONE</button>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered">
+                <thead>
+                    
+                    <th>
+                        <h2>TASK</h2>
+                    </th>
+                    <th>
+                        <h2>DESCRIPTION</h2>
+                    </th>
+                    <th>
+        
+                    </th>
+               
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let c of ctasks;">
+                        <td>
+                            {{c.task}}
+                        </td>
+                        <td>
+                            {{c.description}}
+        
+                        </td>
+                        <!-- <td>
+                         {{ t.completed }}
+                        </td> -->
+                        <td>
+                            <button type="submit" class="btn btn-warning" (click)="onUndoClick(c)">UNDO</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
